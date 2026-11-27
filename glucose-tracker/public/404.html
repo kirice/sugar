@@ -1,0 +1,13 @@
+<!-- 404.html для GitHub Pages: перенаправляет SPA-маршруты на index.html -->
+<script>
+(function (l) {
+  var p = l.pathname;
+  var base = '/glucose-tracker/';
+  if (p.indexOf(base) !== 0) return;
+  var seg = p.slice(base.length).split('/')[0];
+  if (!seg || seg.indexOf('.') !== -1) return;
+  var q = l.search || '';
+  var h = l.hash || '';
+  l.replace(base + 'index.html' + q + h + '#r=' + encodeURIComponent(p + q));
+})(window.location);
+</script>
